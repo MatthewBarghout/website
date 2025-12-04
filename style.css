@@ -155,7 +155,7 @@ nav {
   z-index: 1;
 }
 
-.buyBotton {
+.buyButton {
   position: absolute;
   top: 50%;
   right: 10%;
@@ -171,7 +171,7 @@ nav {
   transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease;
 }
 
-.buyBotton:hover {
+.buyButton:hover {
   background-color: white;
   color: black;
   transform: scale(1.1);
@@ -295,7 +295,7 @@ nav {
     border:none;
     border-bottom: 1px solid gray;
   }
-  .payImpit::placeholder{
+  .payInput::placeholder{
     color:lightgray;
 
   }
@@ -351,12 +351,12 @@ nav {
     padding:50px;
 }
 .productTitle{
-   font: size 75px;
-   font-weight:900; 
+   font-size: 75px;
+   font-weight:900;
 }
 .productDesc{
-   font-style:24px;
-   color:gray; 
+   font-size:24px;
+   color:gray;
 }
 .colors,.sizes{
     display:flex;
@@ -367,7 +367,7 @@ nav {
     height:32px;
     border-radius:5px;
     background-color:black;
-    margin: right 10px;
+    margin-right: 10px;
     cursor:pointer;
 }
 .color:last-child{
@@ -626,6 +626,8 @@ nav {
     padding: 20px;
     box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
     z-index: 1000;
+    flex-direction: column;
+    gap: 10px;
 }
 
 .cartButton {
@@ -667,4 +669,12 @@ nav {
     padding: 10px;
     border: none;
     cursor: pointer;
+}
+
+.cartTotal {
+    font-size: 18px;
+    font-weight: bold;
+    margin: 10px 0;
+    padding: 10px;
+    border-top: 2px solid #ddd;
 }
