@@ -170,28 +170,18 @@ close.addEventListener("click", () => {
   payment.style.display = "none";
 });
 
-
-fetch('http://localhost:3000/users')
-.then(response => response.json())
-.then(data => {
-  console.log(data);
-})
-.catch(error => {
-  console.error('Error:', error);
-});
-
 // Initialize cart
 let cart = [];
 
 // Function to toggle the cart visibility
 function toggleCart() {
-    const cartDiv = document.querySelector('.cart');
-    cartDiv.style.display = cartDiv.style.display === 'flex' ? 'none' : 'flex';
+    const cartModal = document.querySelector('.cartModal');
+    cartModal.style.display = cartModal.style.display === 'flex' ? 'none' : 'flex';
 }
 
 // Function to close the cart
 function closeCart() {
-    document.querySelector('.cart').style.display = 'none';
+    document.querySelector('.cartModal').style.display = 'none';
 }
 
 // Function to add product to the cart
@@ -230,7 +220,7 @@ function updateCart() {
     let total = 0;
     cart.forEach(item => {
         const cartItemDiv = document.createElement('div');
-        cartItemDiv.classList.add('cart-item');
+        cartItemDiv.classList.add('cartItem');
         cartItemDiv.innerHTML = `
             <span>${item.name} (x${item.quantity})</span>
             <span>$${(item.price * item.quantity).toFixed(2)}</span>
@@ -253,6 +243,13 @@ function checkout() {
     }
 
     alert('Proceeding to checkout...');
-    // Here you can integrate with a payment gateway or continue your checkout process
+    cart = [];
+    updateCart();
+    closeCart();
 }
+
+// Event listeners for cart buttons
+document.querySelector('.cartButton').addEventListener('click', toggleCart);
+document.querySelector('.closeCart').addEventListener('click', closeCart);
+document.querySelector('.checkoutButton').addEventListener('click', checkout);
 
